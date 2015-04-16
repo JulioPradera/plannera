@@ -1,0 +1,69 @@
+<h1>Produtos</h1>
+
+<div>
+    <div style="text-align: right;">
+        <button class="btn btn-primary btn-sm" ng-click="add()">Novo</button>
+    </div>
+    <table ng-table="tableParams" class="table table-bordered table-hover dataTable">
+        <thead>
+            <tr>
+                <th width="33%">
+                    Código
+                </th>
+                <th width="33%">
+                    Nome
+                </th>
+                <th width="*">
+                    Quantidade Vendida
+                </th>
+                <th width="90px">
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-if="novoProduto.add">
+                <td>
+                    <div>
+                        <input type="text" class="form-control" ng-model="novoProduto.codigo" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="text" class="form-control" ng-model="novoProduto.nome" />
+                    </div>
+                </td>
+                <td align="center">
+                    <div>
+                        <input type="text" class="form-control" ng-model="novoProduto.qtdVenda" />
+                    </div>
+                </td>
+                <td>
+                    <button class="btn btn-success btn-sm" ng-click="save(novoProduto)"><i class="glyphicon glyphicon-saved"></i></button>
+                </td>
+            </tr>
+            <tr ng-repeat="produto in produtos">
+                <td>
+                    <span>{{produto.codigo}}</span>
+                </td>
+                <td>
+                    <span ng-if="!produto.edit">{{produto.nome}}</span>
+                    <div ng-if="produto.edit">
+                        <input type="text" class="form-control" ng-model="produto.nome" />
+                    </div>
+                </td>
+                <td align="center">
+                    <span ng-if="!produto.edit">{{produto.qtdVenda}}</span>
+                    <div ng-if="produto.edit">
+                        <input type="text" class="form-control" ng-model="produto.qtdVenda" />
+                    </div>
+                </td>
+                <td>
+                    <button ng-if="!produto.edit" class="btn btn-warning btn-sm" ng-click="edit(produto)"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button ng-if="!produto.edit" class="btn btn-danger btn-sm" ng-click="delete(produto)"><i class="glyphicon glyphicon-remove"></i></button>
+                    <button ng-if="produto.edit" class="btn btn-success btn-sm" ng-click="save(produto)"><i class="glyphicon glyphicon-saved"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,61 @@
+<h1>Estatísticas</h1>
+
+<div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-solid">
+                <div class="box-header">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <h3 class="box-title">Estimativa Para o Próximo Mês</h3>
+                </div>
+                <div style="display: block;" class="box-body ">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="input-group input-group-sm">
+                                <input type="text" class="form-control" ng-model="vendaTotal" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-info btn-flat" ng-click="calcularPrevisao()">Calcular</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table ng-table="tableParams" class="table table-bordered table-hover dataTable">
+        <thead>
+            <tr>
+                <th width="25%">
+                    Código
+                </th>
+                <th width="25%">
+                    Nome
+                </th>
+                <th width="25%">
+                    Venda Atual
+                </th>
+                <th width="25%">
+                    Previsão de Venda
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="produto in produtos">
+                <td>
+                    <span>{{produto.codigo}}</span>
+                </td>
+                <td>
+                    <span>{{produto.nome}}</span>
+                </td>
+                <td>
+                    <span>{{produto.vendaAtual}}</span>
+                </td>
+                <td>
+                    <span>{{produto.vendaPrevisao}}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,43 @@
+<h1>Mix</h1>
+
+<div>
+    <table ng-table="tableParams" class="table table-bordered table-hover dataTable">
+        <thead>
+            <tr>
+                <th width="25%">
+                    Código
+                </th>
+                <th width="25%">
+                    Nome
+                </th>
+                <th width="25%">
+                    Quantidade Vendida
+                </th>
+                <th colspan="2">
+                    Mix
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="produto in produtos">
+                <td>
+                    <span>{{produto.codigo}}</span>
+                </td>
+                <td>
+                    <span>{{produto.nome}}</span>
+                </td>
+                <td align="center">
+                    <span>{{produto.qtdVenda}}</span>
+                </td>
+                <td>
+                    <div class="progress progress-striped">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" style="width: {{ produto.mix }};"></div>
+                    </div>
+                </td>
+                <td width="1" align="right">
+                    <span class="badge bg-light-blue">{{ produto.mix }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
